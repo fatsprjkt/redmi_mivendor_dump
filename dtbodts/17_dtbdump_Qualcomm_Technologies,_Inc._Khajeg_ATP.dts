@@ -1,0 +1,1055 @@
+/dts-v1/;
+
+/ {
+	compatible = "qcom,khajeg-atp", "qcom,khajeg", "qcom,atp";
+	model = "Qualcomm Technologies, Inc. Khajeg ATP";
+	qcom,board-id = <0x21 0x0>;
+	qcom,msm-id = <0x249 0x10000>;
+	qcom,pmic-id = <0x2d 0x2e 0x0 0x0>;
+
+	__fixups__ {
+		L11A = "/fragment@5/__overlay__:vdd-io-supply:0", "/fragment@8/__overlay__:vccq2-supply:0";
+		L15A = "/fragment@0/__overlay__/qcom,pm7250b@2/qcom,usb-pdphy@1700:vdd-pdphy-supply:0";
+		L18A = "/fragment@7/__overlay__:vdda-pll-supply:0", "/fragment@8/__overlay__:qcom,vddp-ref-clk-supply:0";
+		L22A = "/fragment@6/__overlay__:vdd-supply:0";
+		L24A = "/fragment@5/__overlay__:vdd-supply:0", "/fragment@8/__overlay__:vcc-supply:0";
+		L4A = "/fragment@7/__overlay__:vdda-phy-supply:0";
+		L5A = "/fragment@6/__overlay__:vdd-io-supply:0";
+		L7A = "/fragment@6/__overlay__:vdd-io-bias-supply:0";
+		camera_therm_default = "/fragment@10/__overlay__:pinctrl-0:0";
+		emmc_therm_default = "/fragment@10/__overlay__:pinctrl-0:4";
+		eud = "/fragment@19/__overlay__:extcon:8";
+		gcc_ufs_phy_gdsc = "/fragment@8/__overlay__:vdd-hba-supply:0";
+		pm6125_adc_tm = "/fragment@11:target:0", "/fragment@12/__overlay__/rf-pa1-therm-usr:thermal-sensors:0";
+		pm6125_gpios = "/fragment@3:target:0", "/fragment@4/__overlay__/vdda_usb_ss_dp_core:gpio:0", "/fragment@13:target:0", "/fragment@14/__overlay__/gpio_keys/vol_up:gpios:0";
+		pm6125_pwm = "/fragment@17:target:0";
+		pm6125_vadc = "/fragment@10:target:0", "/fragment@11/__overlay__/rf_pa1_therm:io-channels:0";
+		pm8008_8 = "/fragment@15:target:0";
+		pm8008_9 = "/fragment@16:target:0";
+		qupv3_se2_i2c = "/fragment@18:target:0";
+		rpmcc = "/fragment@0/__overlay__/qcom,pm7250b@2/clock-controller@5b00:clocks:0";
+		sdc1_off = "/fragment@5/__overlay__:pinctrl-1:0";
+		sdc1_on = "/fragment@5/__overlay__:pinctrl-0:0";
+		sdc2_off = "/fragment@6/__overlay__:pinctrl-1:0";
+		sdc2_on = "/fragment@6/__overlay__:pinctrl-0:0";
+		sdhc_1 = "/fragment@5:target:0";
+		sdhc_2 = "/fragment@6:target:0";
+		soc = "/fragment@4:target:0", "/fragment@14:target:0";
+		spmi_bus = "/fragment@0:target:0";
+		thermal_zones = "/fragment@1:target:0", "/fragment@2:target:0", "/fragment@12:target:0";
+		tlmm = "/fragment@6/__overlay__:cd-gpios:0", "/fragment@8/__overlay__:reset-gpios:0", "/fragment@18/__overlay__/novatek@62:interrupt-parent:0", "/fragment@18/__overlay__/novatek@62:novatek,reset-gpio:0", "/fragment@18/__overlay__/novatek@62:novatek,irq-gpio:0";
+		ts_int_active = "/fragment@18/__overlay__/novatek@62:pinctrl-0:0";
+		ts_int_suspend = "/fragment@18/__overlay__/novatek@62:pinctrl-1:0";
+		ts_release = "/fragment@18/__overlay__/novatek@62:pinctrl-2:0";
+		ts_reset_active = "/fragment@18/__overlay__/novatek@62:pinctrl-0:4";
+		ts_reset_suspend = "/fragment@18/__overlay__/novatek@62:pinctrl-1:4";
+		ufshc_mem = "/fragment@8:target:0";
+		ufsphy_mem = "/fragment@7:target:0";
+		usb0 = "/fragment@19:target:0";
+		usb2_phy0 = "/fragment@0/__overlay__/qcom,pm7250b@2/qcom,qpnp-smb5:dpdm-supply:0";
+		usb_qmp_dp_phy = "/fragment@9:target:0";
+	};
+
+	__local_fixups__ {
+
+		fragment@0 {
+
+			__overlay__ {
+
+				qcom,pm7250b@2 {
+
+					adc_tm@3500 {
+
+						charger_skin_therm@4d {
+							io-channels = <0x0>;
+						};
+
+						conn_therm@4f {
+							io-channels = <0x0>;
+						};
+					};
+
+					clock-controller@5b00 {
+						assigned-clocks = <0x0>;
+					};
+
+					qcom,qpnp-smb5 {
+						depends-on-supply = <0x0>;
+						io-channels = <0x0 0x8 0x10 0x18 0x20 0x28 0x30>;
+					};
+
+					qcom,temp-alarm@2400 {
+						io-channels = <0x0>;
+					};
+
+					qcom,usb-pdphy@1700 {
+						vbus-supply = <0x0>;
+						vconn-supply = <0x0>;
+					};
+
+					qpnp,qg {
+						io-channels = <0x0 0x8>;
+					};
+				};
+			};
+		};
+
+		fragment@1 {
+
+			__overlay__ {
+
+				pm7250b-bcl-lvl0 {
+					thermal-sensors = <0x0>;
+				};
+
+				pm7250b-bcl-lvl1 {
+					thermal-sensors = <0x0>;
+				};
+
+				pm7250b-bcl-lvl2 {
+					thermal-sensors = <0x0>;
+				};
+
+				pm7250b-ibat-lvl0 {
+					thermal-sensors = <0x0>;
+				};
+
+				pm7250b-ibat-lvl1 {
+					thermal-sensors = <0x0>;
+				};
+
+				pm7250b-tz {
+					thermal-sensors = <0x0>;
+				};
+
+				socd {
+					thermal-sensors = <0x0>;
+				};
+			};
+		};
+
+		fragment@10 {
+
+			__overlay__ {
+				pinctrl-0 = <0x8>;
+			};
+		};
+
+		fragment@14 {
+
+			__overlay__ {
+
+				gpio_keys {
+					pinctrl-0 = <0x0>;
+				};
+			};
+		};
+
+		fragment@19 {
+
+			__overlay__ {
+				extcon = <0x0 0x4>;
+			};
+		};
+
+		fragment@2 {
+
+			__overlay__ {
+
+				charger-therm-usr {
+					thermal-sensors = <0x0>;
+				};
+
+				conn-therm-usr {
+					thermal-sensors = <0x0>;
+				};
+			};
+		};
+
+		fragment@4 {
+
+			__overlay__ {
+
+				vdda_usb_ss_dp_core {
+					pinctrl-0 = <0x0>;
+				};
+			};
+		};
+
+		fragment@9 {
+
+			__overlay__ {
+				vdd-supply = <0x0>;
+			};
+		};
+	};
+
+	__symbols__ {
+		b_bcl_lvl0 = "/fragment@1/__overlay__/pm7250b-bcl-lvl0/trips/b-bcl-lvl0";
+		b_bcl_lvl1 = "/fragment@1/__overlay__/pm7250b-bcl-lvl1/trips/b-bcl-lvl1";
+		b_bcl_lvl2 = "/fragment@1/__overlay__/pm7250b-bcl-lvl2/trips/b-bcl-lvl2";
+		bcl_soc = "/fragment@0/__overlay__/qcom,pm7250b@2/bcl-soc";
+		disp_lcd_bias_en_default = "/fragment@0/__overlay__/qcom,pm7250b@2/pinctrl@c000/disp_lcd_bias_en/disp_lcd_bias_en_default";
+		ibat_lvl0 = "/fragment@1/__overlay__/pm7250b-ibat-lvl0/trips/ibat-lvl0";
+		ibat_lvl1 = "/fragment@1/__overlay__/pm7250b-ibat-lvl1/trips/ibat-lvl1";
+		key_vol_up_default = "/fragment@13/__overlay__/key_vol_up/key_vol_up_default";
+		pm7250b_adc_tm = "/fragment@0/__overlay__/qcom,pm7250b@2/adc_tm@3500";
+		pm7250b_bcl = "/fragment@0/__overlay__/qcom,pm7250b@2/bcl@1d00";
+		pm7250b_charger = "/fragment@0/__overlay__/qcom,pm7250b@2/qcom,qpnp-smb5";
+		pm7250b_clkdiv = "/fragment@0/__overlay__/qcom,pm7250b@2/clock-controller@5b00";
+		pm7250b_gpios = "/fragment@0/__overlay__/qcom,pm7250b@2/pinctrl@c000";
+		pm7250b_pdphy = "/fragment@0/__overlay__/qcom,pm7250b@2/qcom,usb-pdphy@1700";
+		pm7250b_qg = "/fragment@0/__overlay__/qcom,pm7250b@2/qpnp,qg";
+		pm7250b_temp_alarm = "/fragment@1/__overlay__/pm7250b-tz";
+		pm7250b_trip0 = "/fragment@1/__overlay__/pm7250b-tz/trips/trip0";
+		pm7250b_trip1 = "/fragment@1/__overlay__/pm7250b-tz/trips/trip1";
+		pm7250b_tz = "/fragment@0/__overlay__/qcom,pm7250b@2/qcom,temp-alarm@2400";
+		pm7250b_vadc = "/fragment@0/__overlay__/qcom,pm7250b@2/vadc@3100";
+		pm7250b_vib = "/fragment@0/__overlay__/qcom,pm7250b@3/qcom,vibrator@5300";
+		rf_pa1_therm_default = "/fragment@13/__overlay__/rf_pa1_therm/rf_pa1_therm_default";
+		smb5_vbus = "/fragment@0/__overlay__/qcom,pm7250b@2/qcom,qpnp-smb5/qcom,smb5-vbus";
+		smb5_vconn = "/fragment@0/__overlay__/qcom,pm7250b@2/qcom,qpnp-smb5/qcom,smb5-vconn";
+		soc_trip = "/fragment@1/__overlay__/socd/trips/soc-trip";
+		usb_eldo9 = "/fragment@3/__overlay__/eldo9_pin/gpio@c000";
+		vdda_usb_ss_dp_core = "/fragment@4/__overlay__/vdda_usb_ss_dp_core";
+	};
+
+	fragment@0 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			#address-cells = <0x2>;
+			#interrupt-cells = <0x4>;
+			#size-cells = <0x0>;
+			interrupt-controller;
+
+			qcom,pm7250b@2 {
+				#address-cells = <0x1>;
+				#size-cells = <0x0>;
+				compatible = "qcom,spmi-pmic";
+				reg = <0x2 0x0>;
+
+				adc_tm@3500 {
+					#address-cells = <0x1>;
+					#size-cells = <0x0>;
+					#thermal-sensor-cells = <0x1>;
+					compatible = "qcom,spmi-adc-tm5";
+					interrupt-names = "pm-adc-tm5";
+					interrupts = <0x2 0x35 0x0 0x1>;
+					phandle = <0x8>;
+					reg = <0x3500>;
+					status = "ok";
+
+					charger_skin_therm@4d {
+						io-channels = <0x1 0x4d>;
+						qcom,hw-settle-time-us = <0xc8>;
+						qcom,ratiometric;
+						reg = <0x0>;
+					};
+
+					conn_therm@4f {
+						io-channels = <0x1 0x4f>;
+						qcom,hw-settle-time-us = <0xc8>;
+						qcom,ratiometric;
+						reg = <0x1>;
+					};
+				};
+
+				bcl-soc {
+					#thermal-sensor-cells = <0x0>;
+					compatible = "qcom,msm-bcl-soc";
+					phandle = <0x7>;
+				};
+
+				bcl@1d00 {
+					#thermal-sensor-cells = <0x1>;
+					compatible = "qcom,bcl-v5";
+					interrupt-names = "bcl-lvl0", "bcl-lvl1", "bcl-lvl2";
+					interrupts = <0x2 0x1d 0x0 0x0 0x2 0x1d 0x1 0x0 0x2 0x1d 0x2 0x0>;
+					phandle = <0x6>;
+					reg = <0x1d00>;
+				};
+
+				clock-controller@5b00 {
+					#clock-cells = <0x1>;
+					assigned-clock-rates = <0x124f800>;
+					assigned-clocks = <0x4 0x1>;
+					clock-names = "xo";
+					clock-output-names = "pm7250b_div_clk1";
+					clocks = <0xffffffff 0x0>;
+					compatible = "qcom,spmi-clkdiv";
+					phandle = <0x4>;
+					qcom,num-clkdivs = <0x1>;
+					reg = <0x5b00>;
+				};
+
+				pinctrl@c000 {
+					#gpio-cells = <0x2>;
+					#interrupt-cells = <0x2>;
+					compatible = "qcom,pm7250b-gpio";
+					gpio-controller;
+					interrupt-controller;
+					phandle = <0x10>;
+					reg = <0xc000>;
+
+					disp_lcd_bias_en {
+
+						disp_lcd_bias_en_default {
+							bias-disable;
+							function = "func1";
+							input-disable;
+							output-enable;
+							phandle = <0x11>;
+							pins = "gpio5";
+							power-source = <0x0>;
+							qcom,drive-strength = <0x2>;
+						};
+					};
+				};
+
+				qcom,qpnp-smb5 {
+					#address-cells = <0x1>;
+					#cooling-cells = <0x2>;
+					#size-cells = <0x1>;
+					compatible = "qcom,pm7250b-smb5";
+					depends-on-supply = <0x1>;
+					dpdm-supply = <0xffffffff>;
+					io-channel-names = "usb_in_voltage", "usb_in_current", "chg_temp", "die_temp", "conn_temp", "sbux_res", "vph_voltage";
+					io-channels = <0x1 0x8 0x1 0x7 0x1 0x9 0x1 0x6 0x1 0x4f 0x1 0x99 0x1 0x83>;
+					phandle = <0xe>;
+					qcom,auto-recharge-soc = <0x62>;
+					qcom,batteryless-platform;
+					qcom,charger-temp-max = <0x320>;
+					qcom,hvdcp2-12v-max-icl-ua = <0x16e360>;
+					qcom,hvdcp2-max-icl-ua = <0x1e8480>;
+					qcom,sec-charger-config = <0x0>;
+					qcom,step-charging-enable;
+					qcom,suspend-input-on-debug-batt;
+					qcom,sw-jeita-enable;
+					qcom,thermal-mitigation = <0x5265c0 0x44aa20 0x3d0900 0x3567e0 0x2dc6c0 0x2625a0 0x1e8480 0x16e360 0xf4240 0x7a120>;
+					status = "ok";
+
+					qcom,batif@1200 {
+						interrupt-names = "bat-temp", "bat-ov", "bat-low", "bat-therm-or-id-missing", "bat-terminal-missing", "buck-oc", "vph-ov";
+						interrupts = <0x2 0x12 0x0 0x1 0x2 0x12 0x2 0x3 0x2 0x12 0x3 0x3 0x2 0x12 0x4 0x3 0x2 0x12 0x5 0x3 0x2 0x12 0x6 0x3 0x2 0x12 0x7 0x3>;
+						reg = <0x1200>;
+					};
+
+					qcom,chg-sdam@b000 {
+						reg = <0xb000>;
+					};
+
+					qcom,chgr@1000 {
+						interrupt-names = "chgr-error", "chg-state-change", "step-chg-state-change", "step-chg-soc-update-fail", "step-chg-soc-update-req", "fg-fvcal-qualified", "vph-alarm", "vph-drop-prechg";
+						interrupts = <0x2 0x10 0x0 0x1 0x2 0x10 0x1 0x1 0x2 0x10 0x2 0x1 0x2 0x10 0x3 0x1 0x2 0x10 0x4 0x1 0x2 0x10 0x5 0x1 0x2 0x10 0x6 0x1 0x2 0x10 0x7 0x1>;
+						reg = <0x1000>;
+					};
+
+					qcom,dc@1400 {
+						interrupt-names = "dcin-vashdn", "dcin-uv", "dcin-ov", "dcin-plugin", "dcin-revi", "dcin-pon", "dcin-en";
+						interrupts = <0x2 0x14 0x1 0x3 0x2 0x14 0x2 0x3 0x2 0x14 0x3 0x3 0x2 0x14 0x4 0x3 0x2 0x14 0x5 0x3 0x2 0x14 0x6 0x1 0x2 0x14 0x7 0x1>;
+						reg = <0x1400>;
+					};
+
+					qcom,dcdc@1100 {
+						interrupt-names = "otg-fail", "otg-oc-disable-sw", "otg-oc-hiccup", "bsm-active", "high-duty-cycle", "input-current-limiting", "concurrent-mode-disable", "switcher-power-ok";
+						interrupts = <0x2 0x11 0x0 0x1 0x2 0x11 0x1 0x1 0x2 0x11 0x2 0x1 0x2 0x11 0x3 0x3 0x2 0x11 0x4 0x3 0x2 0x11 0x5 0x3 0x2 0x11 0x6 0x1 0x2 0x11 0x7 0x3>;
+						reg = <0x1100>;
+					};
+
+					qcom,misc@1600 {
+						interrupt-names = "wdog-snarl", "wdog-bark", "aicl-fail", "aicl-done", "smb-en", "imp-trigger", "temp-change", "temp-change-smb";
+						interrupts = <0x2 0x16 0x0 0x1 0x2 0x16 0x1 0x1 0x2 0x16 0x2 0x1 0x2 0x16 0x3 0x1 0x2 0x16 0x4 0x3 0x2 0x16 0x5 0x1 0x2 0x16 0x6 0x1 0x2 0x16 0x7 0x1>;
+						reg = <0x1600>;
+					};
+
+					qcom,smb5-vbus {
+						phandle = <0x2>;
+						regulator-name = "smb5-vbus";
+					};
+
+					qcom,smb5-vconn {
+						phandle = <0x3>;
+						regulator-name = "smb5-vconn";
+					};
+
+					qcom,typec@1500 {
+						interrupt-names = "typec-or-rid-detect-change", "typec-vpd-detect", "typec-cc-state-change", "typec-vconn-oc", "typec-vbus-change", "typec-attach-detach", "typec-legacy-cable-detect", "typec-try-snk-src-detect";
+						interrupts = <0x2 0x15 0x0 0x1 0x2 0x15 0x1 0x1 0x2 0x15 0x2 0x1 0x2 0x15 0x3 0x1 0x2 0x15 0x4 0x1 0x2 0x15 0x5 0x1 0x2 0x15 0x6 0x1 0x2 0x15 0x7 0x1>;
+						reg = <0x1500>;
+					};
+
+					qcom,usb@1300 {
+						interrupt-names = "usbin-collapse", "usbin-vashdn", "usbin-uv", "usbin-ov", "usbin-plugin", "usbin-revi-change", "usbin-src-change", "usbin-icl-change";
+						interrupts = <0x2 0x13 0x0 0x3 0x2 0x13 0x1 0x3 0x2 0x13 0x2 0x3 0x2 0x13 0x3 0x3 0x2 0x13 0x4 0x3 0x2 0x13 0x5 0x3 0x2 0x13 0x6 0x1 0x2 0x13 0x7 0x1>;
+						reg = <0x1300>;
+					};
+				};
+
+				qcom,temp-alarm@2400 {
+					#thermal-sensor-cells = <0x0>;
+					compatible = "qcom,spmi-temp-alarm";
+					interrupts = <0x2 0x24 0x0 0x3>;
+					io-channel-names = "thermal";
+					io-channels = <0x1 0x6>;
+					phandle = <0x5>;
+					qcom,temperature-threshold-set = <0x1>;
+					reg = <0x2400>;
+				};
+
+				qcom,usb-pdphy@1700 {
+					#io-channel-cells = <0x1>;
+					compatible = "qcom,qpnp-pdphy";
+					interrupt-names = "sig-tx", "sig-rx", "msg-tx", "msg-rx", "msg-tx-failed", "msg-tx-discarded", "msg-rx-discarded", "fr-swap";
+					interrupts = <0x2 0x17 0x0 0x1 0x2 0x17 0x1 0x1 0x2 0x17 0x2 0x1 0x2 0x17 0x3 0x1 0x2 0x17 0x4 0x1 0x2 0x17 0x5 0x1 0x2 0x17 0x6 0x1 0x2 0x17 0x7 0x1>;
+					phandle = <0xd>;
+					qcom,default-sink-caps = <0x1388 0xbb8 0x2328 0xbb8 0x2ee0 0x8ca>;
+					reg = <0x1700>;
+					vbus-supply = <0x2>;
+					vconn-supply = <0x3>;
+					vdd-pdphy-supply = <0xffffffff>;
+				};
+
+				qpnp,qg {
+					#address-cells = <0x1>;
+					#size-cells = <0x1>;
+					compatible = "qcom,pm7250b-qg";
+					io-channel-names = "batt-therm", "batt-id";
+					io-channels = <0x1 0x4a 0x1 0x4b>;
+					phandle = <0xf>;
+					qcom,cl-feedback-on;
+					qcom,hold-soc-while-full;
+					qcom,linearize-soc;
+					qcom,qg-iterm-ma = <0x96>;
+					qcom,s3-entry-fifo-length = <0x2>;
+					qcom,vbatt-cutoff-mv = <0xc80>;
+					qcom,vbatt-empty-cold-mv = <0xbb8>;
+					qcom,vbatt-empty-mv = <0xbb8>;
+					qcom,vbatt-low-cold-mv = <0xe74>;
+					qcom,vbatt-low-mv = <0xce4>;
+					status = "ok";
+
+					qcom,qg-sdam@b100 {
+						reg = <0xb100>;
+						status = "okay";
+					};
+
+					qcom,qgauge@4800 {
+						interrupt-names = "qg-batt-missing", "qg-vbat-low", "qg-vbat-empty", "qg-fifo-done", "qg-good-ocv";
+						interrupts = <0x2 0x48 0x0 0x3 0x2 0x48 0x1 0x3 0x2 0x48 0x2 0x1 0x2 0x48 0x3 0x1 0x2 0x48 0x4 0x1>;
+						reg = <0x4800>;
+						status = "okay";
+					};
+				};
+
+				vadc@3100 {
+					#address-cells = <0x1>;
+					#io-channel-cells = <0x1>;
+					#size-cells = <0x0>;
+					compatible = "qcom,spmi-adc5";
+					interrupt-names = "eoc-int-en-set";
+					interrupts = <0x2 0x31 0x0 0x1>;
+					io-channel-ranges;
+					phandle = <0x1>;
+					qcom,adc-vdd-reference = <0x753>;
+					reg = <0x3100>;
+					reg-names = "adc5-usr-base";
+
+					bat_id@4b {
+						label = "bat_id";
+						qcom,hw-settle-time = <0xc8>;
+						qcom,pre-scaling = <0x1 0x1>;
+						qcom,ratiometric;
+						reg = <0x4b>;
+					};
+
+					bat_therm@4a {
+						label = "bat_therm";
+						qcom,hw-settle-time = <0xc8>;
+						qcom,pre-scaling = <0x1 0x1>;
+						qcom,ratiometric;
+						reg = <0x4a>;
+					};
+
+					bat_therm_30k@2a {
+						label = "bat_therm_30k";
+						qcom,hw-settle-time = <0xc8>;
+						qcom,pre-scaling = <0x1 0x1>;
+						qcom,ratiometric;
+						reg = <0x2a>;
+					};
+
+					bat_therm_400k@6a {
+						label = "bat_therm_400k";
+						qcom,hw-settle-time = <0xc8>;
+						qcom,pre-scaling = <0x1 0x1>;
+						qcom,ratiometric;
+						reg = <0x6a>;
+					};
+
+					charger_skin_therm@4d {
+						label = "charger_skin_therm";
+						qcom,hw-settle-time = <0xc8>;
+						qcom,pre-scaling = <0x1 0x1>;
+						qcom,ratiometric;
+						reg = <0x4d>;
+					};
+
+					chg_sbux@99 {
+						label = "chg_sbux";
+						qcom,pre-scaling = <0x1 0x3>;
+						reg = <0x99>;
+					};
+
+					chg_temp@9 {
+						label = "chg_temp";
+						qcom,pre-scaling = <0x1 0x1>;
+						reg = <0x9>;
+					};
+
+					conn_therm@4f {
+						label = "conn_therm";
+						qcom,hw-settle-time = <0xc8>;
+						qcom,pre-scaling = <0x1 0x1>;
+						qcom,ratiometric;
+						reg = <0x4f>;
+					};
+
+					die_temp@2 {
+						label = "die_temp";
+						qcom,pre-scaling = <0x1 0x1>;
+						reg = <0x6>;
+					};
+
+					mid_chg_div6@1e {
+						label = "chg_mid";
+						qcom,pre-scaling = <0x1 0x6>;
+						reg = <0x1e>;
+					};
+
+					ref_gnd@0 {
+						label = "ref_gnd";
+						qcom,pre-scaling = <0x1 0x1>;
+						reg = <0x0>;
+					};
+
+					smb1390_therm@e {
+						label = "smb1390_therm";
+						qcom,hw-settle-time = <0xc8>;
+						qcom,pre-scaling = <0x1 0x1>;
+						reg = <0xe>;
+					};
+
+					usb_in_i_uv@7 {
+						label = "usb_in_i_uv";
+						qcom,pre-scaling = <0x1 0x1>;
+						reg = <0x7>;
+					};
+
+					usb_in_v_div_16@8 {
+						label = "usb_in_v_div_16";
+						qcom,pre-scaling = <0x1 0x10>;
+						reg = <0x8>;
+					};
+
+					vbat_sns@84 {
+						label = "vbat_sns";
+						qcom,pre-scaling = <0x1 0x3>;
+						reg = <0x84>;
+					};
+
+					vph_pwr@83 {
+						label = "vph_pwr";
+						qcom,pre-scaling = <0x1 0x3>;
+						reg = <0x83>;
+					};
+
+					vref_1p25@1 {
+						label = "vref_1p25";
+						qcom,pre-scaling = <0x1 0x1>;
+						reg = <0x1>;
+					};
+				};
+			};
+
+			qcom,pm7250b@3 {
+				#address-cells = <0x1>;
+				#size-cells = <0x0>;
+				compatible = "qcom,spmi-pmic";
+				reg = <0x3 0x0>;
+
+				qcom,vibrator@5300 {
+					compatible = "qcom,qpnp-vibrator-ldo";
+					phandle = <0x12>;
+					qcom,disable-overdrive;
+					qcom,vib-ldo-volt-uv = <0x2dc6c0>;
+					reg = <0x5300>;
+				};
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+
+			pm7250b-bcl-lvl0 {
+				polling-delay = <0x0>;
+				polling-delay-passive = <0x64>;
+				thermal-sensors = <0x6 0x5>;
+
+				trips {
+
+					b-bcl-lvl0 {
+						hysteresis = <0x1>;
+						phandle = <0x18>;
+						temperature = <0x1>;
+						type = "passive";
+					};
+				};
+			};
+
+			pm7250b-bcl-lvl1 {
+				polling-delay = <0x0>;
+				polling-delay-passive = <0x64>;
+				thermal-sensors = <0x6 0x6>;
+
+				trips {
+
+					b-bcl-lvl1 {
+						hysteresis = <0x1>;
+						phandle = <0x19>;
+						temperature = <0x1>;
+						type = "passive";
+					};
+				};
+			};
+
+			pm7250b-bcl-lvl2 {
+				polling-delay = <0x0>;
+				polling-delay-passive = <0x64>;
+				thermal-sensors = <0x6 0x7>;
+
+				trips {
+
+					b-bcl-lvl2 {
+						hysteresis = <0x1>;
+						phandle = <0x1a>;
+						temperature = <0x1>;
+						type = "passive";
+					};
+				};
+			};
+
+			pm7250b-ibat-lvl0 {
+				polling-delay = <0x0>;
+				polling-delay-passive = <0x0>;
+				thermal-sensors = <0x6 0x0>;
+
+				trips {
+
+					ibat-lvl0 {
+						hysteresis = <0xc8>;
+						phandle = <0x16>;
+						temperature = <0x157c>;
+						type = "passive";
+					};
+				};
+			};
+
+			pm7250b-ibat-lvl1 {
+				polling-delay = <0x0>;
+				polling-delay-passive = <0x0>;
+				thermal-sensors = <0x6 0x1>;
+
+				trips {
+
+					ibat-lvl1 {
+						hysteresis = <0xc8>;
+						phandle = <0x17>;
+						temperature = <0x1770>;
+						type = "passive";
+					};
+				};
+			};
+
+			pm7250b-tz {
+				phandle = <0x13>;
+				polling-delay = <0x0>;
+				polling-delay-passive = <0x64>;
+				thermal-sensors = <0x5>;
+
+				trips {
+
+					trip0 {
+						hysteresis = <0x0>;
+						phandle = <0x14>;
+						temperature = <0x17318>;
+						type = "passive";
+					};
+
+					trip1 {
+						hysteresis = <0x0>;
+						phandle = <0x15>;
+						temperature = <0x1c138>;
+						type = "passive";
+					};
+
+					trip2 {
+						hysteresis = <0x0>;
+						temperature = <0x23668>;
+						type = "passive";
+					};
+				};
+			};
+
+			socd {
+				polling-delay = <0x0>;
+				polling-delay-passive = <0x64>;
+				thermal-sensors = <0x7>;
+
+				trips {
+
+					soc-trip {
+						hysteresis = <0x0>;
+						phandle = <0x1b>;
+						temperature = <0x5a>;
+						type = "passive";
+					};
+
+					thermal-engine-trip {
+						hysteresis = <0x0>;
+						temperature = <0x64>;
+						type = "passive";
+					};
+
+					thermal-hal-trip {
+						hysteresis = <0x0>;
+						temperature = <0x64>;
+						type = "passive";
+					};
+				};
+			};
+		};
+	};
+
+	fragment@10 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			pinctrl-0 = <0xffffffff 0xffffffff 0xb>;
+
+			rf_pa1_therm {
+				label = "rf_pa1_therm";
+				qcom,hw-settle-time = <0xc8>;
+				qcom,pre-scaling = <0x1 0x1>;
+				qcom,ratiometric;
+				reg = <0x55>;
+			};
+		};
+	};
+
+	fragment@11 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			status = "ok";
+
+			rf_pa1_therm {
+				io-channels = <0xffffffff 0x55>;
+				qcom,hw-settle-time-us = <0xc8>;
+				qcom,ratiometric;
+				reg = <0x3>;
+			};
+		};
+	};
+
+	fragment@12 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+
+			rf-pa1-therm-usr {
+				polling-delay = <0x0>;
+				polling-delay-passive = <0x0>;
+				thermal-governor = "user_space";
+				thermal-sensors = <0xffffffff 0x3>;
+				wake-capable-sensor;
+
+				trips {
+
+					active-config0 {
+						hysteresis = <0x3e8>;
+						temperature = <0x1e848>;
+						type = "passive";
+					};
+				};
+			};
+		};
+	};
+
+	fragment@13 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+
+			key_vol_up {
+
+				key_vol_up_default {
+					bias-pull-up;
+					function = "normal";
+					input-enable;
+					phandle = <0xc>;
+					pins = "gpio5";
+					power-source = <0x0>;
+				};
+			};
+
+			rf_pa1_therm {
+
+				rf_pa1_therm_default {
+					bias-high-impedance;
+					phandle = <0xb>;
+					pins = "gpio7";
+				};
+			};
+		};
+	};
+
+	fragment@14 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+
+			gpio_keys {
+				compatible = "gpio-keys";
+				label = "gpio-keys";
+				pinctrl-0 = <0xc>;
+				pinctrl-names = "default";
+
+				vol_up {
+					debounce-interval = <0xf>;
+					gpio-key,wakeup;
+					gpios = <0xffffffff 0x5 0x1>;
+					label = "volume_up";
+					linux,can-disable;
+					linux,code = <0x73>;
+					linux,input-type = <0x1>;
+				};
+			};
+		};
+	};
+
+	fragment@15 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@16 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@17 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@18 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			status = "okay";
+
+			novatek@62 {
+				interrupt-parent = <0xffffffff>;
+				interrupts = <0x50 0x2008>;
+				novatek,irq-gpio = <0xffffffff 0x50 0x2008>;
+				novatek,reset-gpio = <0xffffffff 0x56 0x0>;
+				pinctrl-0 = <0xffffffff 0xffffffff>;
+				pinctrl-1 = <0xffffffff 0xffffffff>;
+				pinctrl-2 = <0xffffffff>;
+				pinctrl-names = "pmx_ts_active", "pmx_ts_suspend", "pmx_ts_release";
+				reg = <0x62>;
+				status = "ok";
+			};
+		};
+	};
+
+	fragment@19 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			extcon = <0xd 0xe 0xffffffff>;
+		};
+	};
+
+	fragment@2 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+
+			charger-therm-usr {
+				polling-delay = <0x0>;
+				polling-delay-passive = <0x0>;
+				thermal-governor = "user_space";
+				thermal-sensors = <0x8 0x0>;
+				wake-capable-sensor;
+
+				trips {
+
+					active-config0 {
+						hysteresis = <0x3e8>;
+						temperature = <0x1e848>;
+						type = "passive";
+					};
+				};
+			};
+
+			conn-therm-usr {
+				polling-delay = <0x0>;
+				polling-delay-passive = <0x0>;
+				thermal-governor = "user_space";
+				thermal-sensors = <0x8 0x1>;
+				wake-capable-sensor;
+
+				trips {
+
+					active-config0 {
+						hysteresis = <0x3e8>;
+						temperature = <0x1e848>;
+						type = "passive";
+					};
+				};
+			};
+		};
+	};
+
+	fragment@3 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+
+			eldo9_pin {
+
+				gpio@c000 {
+					bias-disable;
+					function = "normal";
+					output-high;
+					phandle = <0x9>;
+					pins = "gpio1";
+					power-source = <0x0>;
+					qcom,drive-strength = <0x2>;
+				};
+			};
+		};
+	};
+
+	fragment@4 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+
+			vdda_usb_ss_dp_core {
+				compatible = "regulator-fixed";
+				enable-active-high;
+				gpio = <0xffffffff 0x1 0x0>;
+				phandle = <0xa>;
+				pinctrl-0 = <0x9>;
+				pinctrl-names = "default";
+				regulator-max-microvolt = <0xd6d80>;
+				regulator-min-microvolt = <0xd6d80>;
+				regulator-name = "vdd_supply";
+			};
+		};
+	};
+
+	fragment@5 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			pinctrl-0 = <0xffffffff>;
+			pinctrl-1 = <0xffffffff>;
+			pinctrl-names = "active", "sleep";
+			qcom,vdd-current-level = <0x0 0x8b290>;
+			qcom,vdd-io-always-on;
+			qcom,vdd-io-current-level = <0x0 0x4f588>;
+			qcom,vdd-io-lpm-sup;
+			qcom,vdd-io-voltage-level = <0x1b7740 0x1b7740>;
+			qcom,vdd-voltage-level = <0x2d2a80 0x2d2a80>;
+			status = "ok";
+			vdd-io-supply = <0xffffffff>;
+			vdd-supply = <0xffffffff>;
+		};
+	};
+
+	fragment@6 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			cd-gpios = <0xffffffff 0x58 0x1>;
+			pinctrl-0 = <0xffffffff>;
+			pinctrl-1 = <0xffffffff>;
+			pinctrl-names = "active", "sleep";
+			qcom,vdd-current-level = <0x0 0xc3500>;
+			qcom,vdd-io-bias-current-level = <0x0 0x1770>;
+			qcom,vdd-io-bias-voltage-level = <0x132a40 0x132a40>;
+			qcom,vdd-io-current-level = <0x0 0x55f0>;
+			qcom,vdd-io-voltage-level = <0x1b7740 0x2d2a80>;
+			qcom,vdd-voltage-level = <0x2d2a80 0x2d2a80>;
+			status = "ok";
+			vdd-io-bias-supply = <0xffffffff>;
+			vdd-io-supply = <0xffffffff>;
+			vdd-supply = <0xffffffff>;
+		};
+	};
+
+	fragment@7 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			compatible = "qcom,ufs-phy-qmp-v4-khaje";
+			status = "ok";
+			vdda-phy-max-microamp = <0x14ec4>;
+			vdda-phy-supply = <0xffffffff>;
+			vdda-pll-max-microamp = <0x477c>;
+			vdda-pll-supply = <0xffffffff>;
+		};
+	};
+
+	fragment@8 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			qcom,vddp-ref-clk-max-microamp = <0x64>;
+			qcom,vddp-ref-clk-supply = <0xffffffff>;
+			reset-gpios = <0xffffffff 0x71 0x1>;
+			reset-names = "rst";
+			status = "ok";
+			vcc-max-microamp = <0xc3500>;
+			vcc-supply = <0xffffffff>;
+			vccq2-max-microamp = <0xc3500>;
+			vccq2-supply = <0xffffffff>;
+			vdd-hba-fixed-regulator;
+			vdd-hba-supply = <0xffffffff>;
+		};
+	};
+
+	fragment@9 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			vdd-supply = <0xa>;
+		};
+	};
+};
